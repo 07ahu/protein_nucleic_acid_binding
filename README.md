@@ -92,4 +92,8 @@ Just take out a chunk of your current spreadsheet and move it to a new one calle
 
 # Time to make the model!
 For the model:
-python3 softmax2.py
+python3 softmax.py --dataset=path/to/training/dataset
+
+this code has a threshold number - use these steps to make your own threshold.
+
+# Try other models:
