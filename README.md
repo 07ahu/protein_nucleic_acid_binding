@@ -20,16 +20,14 @@ Time to use the sequences you found to put through AlphaFold
 2. Press "+ Add entity"
 3. Change the second "Entity type" to DNA or RNA depending on what it was (you can check in the fasta file with the sequences) And make sure the first "Entity type" is Protein
 4. Enter the Protein sequence and the DNA/RNA sequence 5'--3'
-5. Press "Continue and preview job" Make sure to title it the PDB ID, or something identifiable 
+5. Press "Continue and preview job" Make sure to title the job the corresponding PDB ID.
 6. Once it finishes running, click into it and press "Download" at the top.
-7. It will download a folder with around 17 files. An example can be found (here)[example]
+7. It will download a folder with around 17 files. An example can be found (here)[fold_2g4b]
 
 REPEAT THESE 14 STEPS ABOVE FOR ALL THE COMPLEXES YOU WANT AND MAKE SURE THE DOWNLOADED FOLDERS ARE ALL WITHIN ONE FOLDER
+* repeat for not only all your training dataset complexes, but also your testing dataset for after the model is created.
 
-
-An example of a spreadsheet that is input into the model can be found (here)[Data_spreadsheet.xlsx]
-Make sure you have these column titles: iptm,	ptm,	mpdockq,	pdockq,	average_plddt,	average_pae,	contact_pairs,	title,	kd
-
+Now make sure you have outputs_a3.py in that folder too, we're going to run that code!
 
 First in order to run all the code we need to, we must install conda. If you don't already have it downloaded, follow these steps:
 
@@ -66,6 +64,7 @@ pip install tensorflow
 conda install scikit-learn
 conda install openpyxl
 ```
+If there are any left that you need to download search up how to conda install that package and you'll type in conda install ____
 
 # Next time you want to run the code, don't do this all over, just run this:
 ```bash
@@ -73,5 +72,24 @@ conda init
 conda activate my_env
 ```
 
+To actually run the code, navigate into your folder first, then run:
+```bash
+cd path/to/your/folder/with/outputs_a3.py
+python3 outputs_a3.py --output_dir=path/to/your/alphafold/output/folders
+```
+# This should result in a new file called output.xlsx
+
+To create the final training spreadsheet, we want to combine your spreadsheet with Kd values with output.xlsx.
+To do this, we want to make sure the titles correspond to fit the right Kd with the other data. 
+You can sort both sheets via the title column and then merge by copy and pasting.
+
+An example of the final spreadsheet that is input into the model can be found (here)[Data_spreadsheet.xlsx]
+Make SURE you have these column titles: iptm,	ptm,	mpdockq,	pdockq,	average_plddt,	average_pae,	contact_pairs,	title,	kd
+
+Now, we want to make a testing dataset that can be tried once the model is created!
+Just take out a chunk of your current spreadsheet and move it to a new one called testing.xlsx
+(You can also repeat the exact same steps above to make a new spreadsheet)
+
+# Time to make the model!
 For the model:
 python3 softmax2.py
