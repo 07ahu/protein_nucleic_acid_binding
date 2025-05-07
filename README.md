@@ -90,6 +90,8 @@ Now, we want to make a testing dataset that can be tried once the model is creat
 Just take out a chunk of your current spreadsheet and move it to a new one called testing.xlsx
 (You can also repeat the exact same steps above to make a new spreadsheet)
 
+BUT, make sure your testing dataset does not have Kd values! Store them in another sheet to compare results later with. 
+
 # Time to make the model!
 For the model:
 python3 softmax.py --dataset=path/to/training/dataset
