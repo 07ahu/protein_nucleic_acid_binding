@@ -29,9 +29,10 @@ conda activate my_env
 ```bash
 conda install pandas
 conda install matplotlib
-conda install python=3.10
-conda install tensorflow
-
+conda install keras -c conda-forge
+pip install tensorflow
+conda install scikit-learn
+conda install openpyxl
 ```
 
 Next time you want to run the code, don't do this all over, just run this:
@@ -39,3 +40,11 @@ Next time you want to run the code, don't do this all over, just run this:
 conda init
 conda activate my_env
 ```
+
+Now, we need data of different proteins for you to run/test your model. 
+
+An example of a spreadsheet that is input into the model can be found (here)[Data_spreadsheet.xlsx]
+Make sure you have these column titles: iptm,	ptm,	mpdockq,	pdockq,	average_plddt,	average_pae,	contact_pairs,	title,	kd
+
+For the model:
+python3 softmax2.py
