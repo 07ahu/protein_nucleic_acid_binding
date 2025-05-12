@@ -3,7 +3,7 @@
 First, we need a TRAINING dataset of different proteins for you to run the model. 
 
 We need data of nucleic acid and protein bindings along with their Kd values and sequences.
-We used: (http://www.pdbbind.org.cn/)[http://www.pdbbind.org.cn/]
+We used: [http://www.pdbbind.org.cn/](http://www.pdbbind.org.cn/)
 
 To use this website:
 1. Make an account + log in
@@ -16,13 +16,13 @@ To use this website:
 
 Time to use the sequences you found to put through AlphaFold
 
-1. Navigate to (https://alphafoldserver.com/)[https://alphafoldserver.com/] and log in.
+1. Navigate to [https://alphafoldserver.com/](https://alphafoldserver.com/) and log in.
 2. Press "+ Add entity"
 3. Change the second "Entity type" to DNA or RNA depending on what it was (you can check in the fasta file with the sequences) And make sure the first "Entity type" is Protein
 4. Enter the Protein sequence and the DNA/RNA sequence 5'--3'
 5. Press "Continue and preview job" Make sure to title the job the corresponding PDB ID.
 6. Once it finishes running, click into it and press "Download" at the top.
-7. It will download a folder with around 17 files. An example can be found (here)[fold_2g4b]
+7. It will download a folder with around 17 files. An example can be found [here](examples/fold_2g4b)
 
 REPEAT THESE 14 STEPS ABOVE FOR ALL THE COMPLEXES YOU WANT AND MAKE SURE THE DOWNLOADED FOLDERS ARE ALL WITHIN ONE FOLDER
 * repeat for not only all your training dataset complexes, but also your testing dataset for after the model is created.
@@ -83,7 +83,7 @@ To create the final training spreadsheet, we want to combine your spreadsheet wi
 To do this, we want to make sure the titles correspond to fit the right Kd with the other data. 
 You can sort both sheets via the title column and then merge by copy and pasting.
 
-An example of the final spreadsheet that is input into the model can be found (here)[Data_spreadsheet.xlsx]
+An example of the final spreadsheet that is input into the model can be found [here](examples/Data_spreadsheet.xlsx)
 Make SURE you have these column titles: iptm,	ptm,	mpdockq,	pdockq,	average_plddt,	average_pae,	contact_pairs,	title,	kd
 
 Now, we want to make a testing dataset that can be tried once the model is created!
