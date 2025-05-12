@@ -12,10 +12,12 @@ from absl import flags, app, logging
 # Load the original dataset
 
 FLAGS = flags.FLAGS
-flags.DEFINE_string('dataset', '.', 'dataset for training')
+flags.DEFINE_string('training_dataset', '.', 'dataset for training')
+flags.DEFINE_string('testing_dataset', '.', 'dataset for testing')
+flags.DEFINE_string('general_path','.','general path')
 
 # before used: data = pd.read_excel("/Users/hualj/Desktop/mpdockq/testing_thresholds/Data_spreadsheet.xlsx")
-data = pd.read_excel(FLAGS.datset)
+data = pd.read_excel(FLAGS.training_datset)
 
 # Select relevant columns for features and target
 data2 = data[['iptm', 'average_plddt', 'mpdockq', 'contact_pairs', 'average_pae']]  # Features
@@ -96,7 +98,8 @@ model.save('/Users/hualj/Desktop/mpdockq/testing_thresholds/model.h5')
 # Step 2: Load the Saved Model and Predict on New Data (without 'kd')
 
 # Load the new dataset (without 'kd' values)
-dataset_path = '/Users/hualj/Desktop/mpdockq/testing_thresholds/testing_data.xlsx'
+# before used: dataset_path = '/Users/hualj/Desktop/mpdockq/testing_thresholds/testing_data.xlsx'
+dataset_path = FLAGS.training_datset
 new_data = pd.read_excel(dataset_path)
 
 new_kd_values = np.log(new_data['kd']+1)
@@ -105,7 +108,8 @@ new_kd_values = np.log(new_data['kd']+1)
 new_features = new_data[['iptm', 'average_plddt', 'mpdockq', 'contact_pairs', 'average_pae']]
 
 # Load the previously saved model
-model = load_model('/Users/hualj/Desktop/mpdockq/testing_thresholds/model.h5')
+# before used: model = load_model('/Users/hualj/Desktop/mpdockq/testing_thresholds/model.h5')
+model = load_model(str(FLAGS.general_path)+'/model.h5')
 
 # Make predictions for the new data
 predictions = model.predict(new_features)
@@ -139,7 +143,7 @@ print('accuracy', correct_predictions/total)
 
 
 # Optionally, save the predictions with titles to a new file
-new_data.to_excel('/Users/hualj/Desktop/mpdockq/testing_thresholds/testing_data.xlsx', index=False)
+new_data.to_excel(FLAGS.testing_dataset, index=False)
 
 # Optional: Visualizing Training and Validation Loss & Accuracy
 # Training vs Validation Loss
