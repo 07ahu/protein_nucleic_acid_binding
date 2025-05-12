@@ -93,10 +93,15 @@ Just take out a chunk of your current spreadsheet and move it to a new one calle
 BUT, make sure your testing dataset does not have Kd values! Store them in another sheet to compare results later with. 
 
 # Time to make the model!
-For the softmax activation function model, first download or copy the softmax.py code into your own system:
+For the softmax activation function model, first download or copy the softmax.py code into your own system
+Then run this with the appropriate folder paths:
 ```bash 
-python3 softmax.py --training_dataset=path/to/training/dataset/spreadsheet --testing_dataset=path/to/testing/dataset/spreadsheet
+python3 softmax.py --training_dataset=path/to/training/dataset/spreadsheet --testing_dataset=path/to/testing/dataset/spreadsheet --general_path=path/to/folder/containing/this/code
+
+# ex: python3 softmax.py --training_dataset=/Users/hualj/Desktop/mpdockq/testing_thresholds/Data_spreadsheet.xlsx --testing_dataset=/Users/hualj/Desktop/mpdockq/testing_thresholds/testing_dataset.xlsx --general_path=/Users/hualj/Desktop/mpdockq/testing_thresholds/
+
 ```
+This uses your training and testing data. 
 
 Learn more about softmax [here](https://www.geeksforgeeks.org/the-role-of-softmax-in-neural-networks-detailed-explanation-and-applications/).
 
@@ -109,10 +114,11 @@ Edit line 69 in the code and set the variable to your new value
 ```bash
 kd_threshold = YOUR_NEW_VALUE
 ```
+Check out your testing spreadsheet to see the results!
 
 # Try other models:
 
-1. [SIGMOID](https://www.sciencedirect.com/topics/computer-science/sigmoid-function#:~:text=A%20Sigmoid%20Function%20is%20defined,in%20outputs%20close%20to%201.)
+1. [SIGMOID activation function (learn more here)](https://www.sciencedirect.com/topics/computer-science/sigmoid-function#:~:text=A%20Sigmoid%20Function%20is%20defined,in%20outputs%20close%20to%201.)
    
 First copy/download [combined.py](combined.py) into your system. **REPLACE the string in line 11 with YOUR PATH to your training spreadsheet.**
 This code is used to normalize your data.
