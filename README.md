@@ -93,9 +93,36 @@ Just take out a chunk of your current spreadsheet and move it to a new one calle
 BUT, make sure your testing dataset does not have Kd values! Store them in another sheet to compare results later with. 
 
 # Time to make the model!
-For the model:
-python3 softmax.py --dataset=path/to/training/dataset
+For the softmax activation function model, first download or copy the softmax.py code into your own system:
+```bash 
+python3 softmax.py --training_dataset=path/to/training/dataset/spreadsheet --testing_dataset=path/to/testing/dataset/spreadsheet
+```
 
-this code has a threshold number - use these steps to make your own threshold.
+Learn more about softmax [here](https://www.geeksforgeeks.org/the-role-of-softmax-in-neural-networks-detailed-explanation-and-applications/).
+
+This code has a threshold number - use these steps to make your own threshold.
+1. Go into your [training spreadsheet](examples/Data_spreadsheet.xlsx)
+2. Create a new column that is log(kd) and set the whole column to logarithim base 10 the kd values.
+3. Find the mean of your log(kd) column - this is your threshold value!
+
+Edit line 69 in the code and set the variable to your new value
+```bash
+kd_threshold = YOUR_NEW_VALUE
+```
 
 # Try other models:
+
+1. [SIGMOID](https://www.sciencedirect.com/topics/computer-science/sigmoid-function#:~:text=A%20Sigmoid%20Function%20is%20defined,in%20outputs%20close%20to%201.)
+   
+First copy/download [combined.py](combined.py) into your system. **REPLACE the string in line 11 with YOUR PATH to your training spreadsheet.**
+This code is used to normalize your data.
+Next, run the model:
+```bash
+python3 sigmoid.py --dataset=path/to/training/dataset
+```
+Initially this will show many visuals like histograms, make sure to exit through all of them before the model runs. These are just displaying the range of your data and also what it looks like being normalized. 
+
+Then it will show the Training and Validation Loss Curves. Learn how to interpret those [here](https://www.geeksforgeeks.org/training-and-validation-loss-in-deep-learning/)
+
+This will also output predicted vs actual kds for some of your dataset.
+
