@@ -120,15 +120,17 @@ Check out your testing spreadsheet to see the results!
 
 1. [SIGMOID activation function (learn more here)](https://www.sciencedirect.com/topics/computer-science/sigmoid-function#:~:text=A%20Sigmoid%20Function%20is%20defined,in%20outputs%20close%20to%201.)
    
-First copy/download [combined.py](combined.py) into your system. **REPLACE the string in line 11 with YOUR PATH to your training spreadsheet.**
+First copy/download [combined.py](combined.py) into your system.
+
 This code is used to normalize your data.
 Next, run the model:
 ```bash
-python3 sigmoid.py --dataset=path/to/training/dataset
+python3 sigmoid.py --training_dataset=path/to/training/dataset --testing_dataset=path/to/testing/datset
 ```
-Initially this will show many visuals like histograms, make sure to exit through all of them before the model runs. These are just displaying the range of your data and also what it looks like being normalized. 
+- Initially this will show many visuals like histograms, make sure to exit through all of them before the model runs. These are just displaying the range of your data and also what it looks like being normalized. 
 
-Then it will show the Training and Validation Loss Curves. Learn how to interpret those [here](https://www.geeksforgeeks.org/training-and-validation-loss-in-deep-learning/)
+- Then it will show the Training and Validation Loss Curves. Learn how to interpret those [here](https://www.geeksforgeeks.org/training-and-validation-loss-in-deep-learning/)
 
-This will also output predicted vs actual kds for some of your dataset.
+- This will also output predicted vs actual kds for some of your dataset.
 
+- It will also create a model_sigmoid.h5 file which is how you saved/reuse your model
