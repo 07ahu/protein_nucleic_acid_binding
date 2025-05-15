@@ -136,7 +136,9 @@ python3 sigmoid.py --training_dataset=path/to/training/dataset --testing_dataset
 - It will also create a model_sigmoid.h5 file which is how you saved/reuse your model
 
 2. Regression Model [learn more here](https://developers.google.com/machine-learning/crash-course/linear-regression)
+   
 Copy/download regression.py to your computer
+
 Run this code:
 ```bash
 python3 regression.py --training_dataset=path/to/training/dataset 
